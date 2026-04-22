@@ -1,0 +1,134 @@
+import Link from "next/link";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+
+export interface ProcessStep {
+  title: string;
+  description: string;
+}
+
+export interface ServicePageProps {
+  badge: string;
+  title: string;
+  subtitle?: string;
+  overview: string[];
+  overviewTitle: string;
+  process: ProcessStep[];
+}
+
+export function ServiceDetailPage({
+  badge,
+  title,
+  subtitle,
+  overview,
+  overviewTitle,
+  process,
+}: ServicePageProps) {
+  return (
+    <div className="pt-20">
+      {/* Hero */}
+      <section className="bg-[#00286D] py-20 px-4 md:px-8 lg:px-20 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-96 h-96 rounded-full border border-white" />
+          <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full border border-white" />
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block bg-[#9DEF06]/20 text-[#9DEF06] font-bold text-xs px-4 py-1.5 rounded-full mb-5 tracking-widest uppercase">
+                {badge}
+              </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
+                {title}
+              </h1>
+              {subtitle && (
+                <p className="text-[#9DEF06] font-bold text-lg md:text-xl mb-6">{subtitle}</p>
+              )}
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-[#9DEF06] text-[#00286D] font-bold px-8 py-4 rounded-full hover:bg-[#8ae000] transition-all duration-300 text-sm"
+              >
+                Get Quote <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="hidden lg:block">
+              <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-white/10 border border-white/20">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img loading="lazy"                   src="/images/placeholder.png"
+                  alt={title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Overview */}
+      <section className="py-20 px-4 md:px-8 lg:px-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <div className="inline-block bg-[#9DEF06]/20 text-[#00286D] font-bold text-xs px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">
+                Overview
+              </div>
+              <h2 className="text-2xl md:text-3xl font-black text-[#00286D] mb-8 leading-tight">
+                {overviewTitle}
+              </h2>
+              <div className="space-y-5">
+                {overview.map((item, i) => (
+                  <div key={i} className="flex items-start gap-4">
+                    <CheckCircle2 className="w-5 h-5 text-[#9DEF06] flex-shrink-0 mt-0.5" />
+                    <p className="text-gray-600 text-sm leading-relaxed">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:block">
+              <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100 block lg:hidden mb-8">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img loading="lazy" src="/images/placeholder.png" alt={title} className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Process */}
+      <section className="py-20 px-4 md:px-8 lg:px-20 bg-[#f8fafc]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
+            <div className="inline-block bg-[#9DEF06]/20 text-[#00286D] font-bold text-xs px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">
+              Our Process
+            </div>
+            <h2 className="text-3xl font-black text-[#00286D]">How We Work</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {process.map((step, i) => (
+              <div key={i} className="bg-[#00286D] rounded-2xl p-6 relative group hover:-translate-y-1 transition-all duration-300">
+                <div className="absolute top-4 right-4 w-8 h-8 bg-[#9DEF06]/20 rounded-full flex items-center justify-center">
+                  <span className="text-[#9DEF06] font-black text-xs">0{i + 1}</span>
+                </div>
+                <div className="w-10 h-10 bg-[#9DEF06] rounded-xl flex items-center justify-center mb-5">
+                  <CheckCircle2 className="w-5 h-5 text-[#00286D]" />
+                </div>
+                <h3 className="text-white font-bold text-base mb-3">{step.title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-[#00286D] text-white font-bold px-8 py-4 rounded-full hover:bg-[#001a4a] transition-all duration-300 text-sm"
+            >
+              Get Quote <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
