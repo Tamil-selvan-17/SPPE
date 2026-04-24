@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export interface ProcessStep {
   title: string;
@@ -33,32 +34,27 @@ export function ServiceDetailPage({
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-block bg-[#9DEF06]/20 text-[#9DEF06] font-bold text-xs px-4 py-1.5 rounded-full mb-5 tracking-widest uppercase">
-                {badge}
+            <FadeIn direction="left" delay={0}>
+              <div>
+                <div className="inline-block bg-[#9DEF06]/20 text-[#9DEF06] font-bold text-xs px-4 py-1.5 rounded-full mb-5 tracking-widest uppercase">
+                  {badge}
+                </div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">{title}</h1>
+                {subtitle && <p className="text-[#9DEF06] font-bold text-lg md:text-xl mb-6">{subtitle}</p>}
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-[#9DEF06] text-[#00286D] font-bold px-8 py-4 rounded-full hover:bg-[#8ae000] transition-all duration-300 text-sm"
+                >
+                  Get Quote <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
-                {title}
-              </h1>
-              {subtitle && (
-                <p className="text-[#9DEF06] font-bold text-lg md:text-xl mb-6">{subtitle}</p>
-              )}
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-[#9DEF06] text-[#00286D] font-bold px-8 py-4 rounded-full hover:bg-[#8ae000] transition-all duration-300 text-sm"
-              >
-                Get Quote <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-            <div className="hidden lg:block">
+            </FadeIn>
+            <FadeIn direction="right" delay={0.2} className="hidden lg:block">
               <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-white/10 border border-white/20">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img loading="lazy"                   src="/images/placeholder.png"
-                  alt={title}
-                  className="w-full h-full object-cover"
-                />
+                <img loading="lazy" src="/images/placeholder.png" alt={title} className="w-full h-full object-cover" />
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -67,29 +63,28 @@ export function ServiceDetailPage({
       <section className="py-20 px-4 md:px-8 lg:px-20 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <div className="inline-block bg-[#9DEF06]/20 text-[#00286D] font-bold text-xs px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">
-                Overview
+            <FadeIn direction="left" delay={0}>
+              <div>
+                <div className="inline-block bg-[#9DEF06]/20 text-[#00286D] font-bold text-xs px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">
+                  Overview
+                </div>
+                <h2 className="text-2xl md:text-3xl font-black text-[#00286D] mb-8 leading-tight">{overviewTitle}</h2>
+                <div className="space-y-5">
+                  {overview.map((item, i) => (
+                    <div key={i} className="flex items-start gap-4">
+                      <CheckCircle2 className="w-5 h-5 text-[#9DEF06] flex-shrink-0 mt-0.5" />
+                      <p className="text-gray-600 text-sm leading-relaxed">{item}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <h2 className="text-2xl md:text-3xl font-black text-[#00286D] mb-8 leading-tight">
-                {overviewTitle}
-              </h2>
-              <div className="space-y-5">
-                {overview.map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <CheckCircle2 className="w-5 h-5 text-[#9DEF06] flex-shrink-0 mt-0.5" />
-                    <p className="text-gray-600 text-sm leading-relaxed">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:block">
+            </FadeIn>
+            <FadeIn direction="right" delay={0.15} className="lg:block">
               <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100 block lg:hidden mb-8">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img loading="lazy" src="/images/placeholder.png" alt={title} className="w-full h-full object-cover" />
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -97,36 +92,42 @@ export function ServiceDetailPage({
       {/* Our Process */}
       <section className="py-20 px-4 md:px-8 lg:px-20 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14">
-            <div className="inline-block bg-[#9DEF06]/20 text-[#00286D] font-bold text-xs px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">
-              Our Process
+          <FadeIn direction="up" delay={0}>
+            <div className="text-center mb-14">
+              <div className="inline-block bg-[#9DEF06]/20 text-[#00286D] font-bold text-xs px-4 py-1.5 rounded-full mb-4 tracking-widest uppercase">
+                Our Process
+              </div>
+              <h2 className="text-3xl font-black text-[#00286D]">How We Work</h2>
             </div>
-            <h2 className="text-3xl font-black text-[#00286D]">How We Work</h2>
-          </div>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {process.map((step, i) => (
-              <div key={i} className="bg-[#00286D] rounded-2xl p-6 relative group hover:-translate-y-1 transition-all duration-300">
-                <div className="absolute top-4 right-4 w-8 h-8 bg-[#9DEF06]/20 rounded-full flex items-center justify-center">
-                  <span className="text-[#9DEF06] font-black text-xs">0{i + 1}</span>
+              <FadeIn key={i} direction="up" delay={0.1 + i * 0.08}>
+                <div className="bg-[#00286D] rounded-2xl p-6 relative group hover:-translate-y-1 transition-all duration-300 h-full">
+                  <div className="absolute top-4 right-4 w-8 h-8 bg-[#9DEF06]/20 rounded-full flex items-center justify-center">
+                    <span className="text-[#9DEF06] font-black text-xs">0{i + 1}</span>
+                  </div>
+                  <div className="w-10 h-10 bg-[#9DEF06] rounded-xl flex items-center justify-center mb-5">
+                    <CheckCircle2 className="w-5 h-5 text-[#00286D]" />
+                  </div>
+                  <h3 className="text-white font-bold text-base mb-3">{step.title}</h3>
+                  <p className="text-white/60 text-sm leading-relaxed">{step.description}</p>
                 </div>
-                <div className="w-10 h-10 bg-[#9DEF06] rounded-xl flex items-center justify-center mb-5">
-                  <CheckCircle2 className="w-5 h-5 text-[#00286D]" />
-                </div>
-                <h3 className="text-white font-bold text-base mb-3">{step.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">{step.description}</p>
-              </div>
+              </FadeIn>
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-[#00286D] text-white font-bold px-8 py-4 rounded-full hover:bg-[#001a4a] transition-all duration-300 text-sm"
-            >
-              Get Quote <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+          <FadeIn direction="up" delay={0.3}>
+            <div className="text-center mt-12">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-[#00286D] text-white font-bold px-8 py-4 rounded-full hover:bg-[#001a4a] transition-all duration-300 text-sm"
+              >
+                Get Quote <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </div>

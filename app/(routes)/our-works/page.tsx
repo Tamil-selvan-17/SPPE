@@ -2,10 +2,29 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Our Works - Projects",
-  description: "Explore SP Power Engineers project portfolio including solar, wind, switchyard, data center, and industrial installations.",
+  title: "Our Works | Project Portfolio — SP Power Engineers",
+  description:
+    "Explore SP Power Engineers' project portfolio — solar plant installations, wind power T&C, switchyard commissioning, data center projects, and industrial electrical works across India.",
+  keywords: [
+    "electrical project portfolio",
+    "solar plant installation India",
+    "wind power commissioning",
+    "switchyard installation",
+    "data center electrical",
+    "industrial electrical projects",
+    "SP Power Engineers works",
+  ],
+  openGraph: {
+    title: "Our Works | SP Power Engineers Project Portfolio",
+    description:
+      "Real projects across solar, wind, switchyard, data center, industrial, and mobility — SP Power Engineers delivers results.",
+    url: `${siteConfig.url}/our-works`,
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "SP Power Engineers Projects" }],
+  },
+  alternates: { canonical: `${siteConfig.url}/our-works` },
 };
 
 const projects = [
