@@ -118,16 +118,6 @@ export function ServiceDetailPage({
             ))}
           </div>
 
-          <FadeIn direction="up" delay={0.3}>
-            <div className="text-center mt-12">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-[#00286D] text-white font-bold px-8 py-4 rounded-full hover:bg-[#001a4a] transition-all duration-300 text-sm"
-              >
-                Get Quote <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </FadeIn>
         </div>
       </section>
     </div>

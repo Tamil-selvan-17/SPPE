@@ -118,20 +118,6 @@ export function ServicePageTemplate({
         </div>
       </section>
 
-      {/* CTA */}
-      <FadeIn direction="up" delay={0}>
-        <section className="py-16 px-4 md:px-8 lg:px-20 bg-[#00286D]">
-          <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-white font-black text-3xl md:text-4xl mb-4">
-              Let&apos;s Build It Right - From Day One
-            </h2>
-            <p className="text-white/70 mb-8 text-base">Ready to power your project safely and efficiently? Contact our experts today.</p>
-            <Link href="/contact" className="bg-[#9DEF06] text-[#00286D] font-bold px-8 py-4 rounded-full hover:bg-[#8ae000] transition-all duration-300 inline-flex items-center gap-2">
-              Request Call <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </section>
-      </FadeIn>
     </>
   );
 }
