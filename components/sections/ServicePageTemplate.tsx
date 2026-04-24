@@ -99,18 +99,29 @@ export function ServicePageTemplate({
               <h2 className="text-[#00286D] font-black text-2xl md:text-3xl">How We Work</h2>
             </div>
           </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {processSteps.map((step, i) => (
-              <FadeIn key={i} direction="up" delay={0.1 + i * 0.08}>
-                <div className="bg-[#00286D] text-white rounded-2xl p-6 relative overflow-hidden group hover:bg-[#001a4a] hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="absolute top-4 right-4 text-[#9DEF06]/20 font-black text-5xl">
-                    {String(i + 1).padStart(2, "0")}
+              <FadeIn key={i} direction="up" delay={0.1 + i * 0.1}>
+                <div className="group relative bg-[#00286D] rounded-3xl p-8 border border-white/10 hover:border-[#9DEF06]/50 transition-all duration-500 h-full flex flex-col">
+                  {/* Step Number Badge */}
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-12 h-12 bg-[#9DEF06] rounded-2xl flex items-center justify-center rotate-3 group-hover:rotate-12 transition-transform duration-500 shadow-[0_0_20px_rgba(157,239,6,0.3)]">
+                      <span className="text-[#00286D] font-black text-xl">{i + 1}</span>
+                    </div>
+                    <div className="h-px flex-1 bg-white/10 ml-4 group-hover:bg-[#9DEF06]/20 transition-colors duration-500" />
                   </div>
-                  <div className="w-10 h-10 bg-[#9DEF06] rounded-xl flex items-center justify-center mb-4">
-                    <span className="text-[#00286D] font-black text-sm">{i + 1}</span>
+
+                  <h3 className="text-white font-black text-xl mb-4 group-hover:text-[#9DEF06] transition-colors duration-300">
+                    {step.title}
+                  </h3>
+                  <p className="text-white/60 text-sm leading-relaxed mb-6 flex-1">
+                    {step.desc}
+                  </p>
+
+                  {/* Decorative element */}
+                  <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                    <div className="w-0 group-hover:w-full h-full bg-[#9DEF06] transition-all duration-700 ease-out" />
                   </div>
-                  <h3 className="font-bold text-base mb-2">{step.title}</h3>
-                  <p className="text-white/70 text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </FadeIn>
             ))}
