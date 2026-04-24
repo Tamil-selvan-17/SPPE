@@ -26,37 +26,55 @@ export function ServiceDetailPage({
 }: ServicePageProps) {
   return (
     <div className="pt-20">
-      {/* Hero */}
-      <section className="bg-[#00286D] py-20 px-4 md:px-8 lg:px-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full border border-white" />
-          <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full border border-white" />
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center pt-32 pb-20 px-4 md:px-8 lg:px-20 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            loading="lazy" 
+            src="/images/placeholder.png" 
+            alt={title} 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00286D] via-[#00286D]/80 to-transparent" />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <FadeIn direction="left" delay={0}>
-              <div>
-                <div className="inline-block bg-[#9DEF06]/20 text-[#9DEF06] font-bold text-xs px-4 py-1.5 rounded-full mb-5 tracking-widest uppercase">
-                  {badge}
-                </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">{title}</h1>
-                {subtitle && <p className="text-[#9DEF06] font-bold text-lg md:text-xl mb-6">{subtitle}</p>}
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-[#9DEF06] text-[#00286D] font-bold px-8 py-4 rounded-full hover:bg-[#8ae000] transition-all duration-300 text-sm"
-                >
-                  Get Quote <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
+
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <FadeIn direction="left" delay={0.1}>
+            <div className="inline-block bg-[#9DEF06]/20 backdrop-blur-sm border border-[#9DEF06]/30 text-[#9DEF06] font-bold text-xs px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase">
+              {badge}
+            </div>
+          </FadeIn>
+          
+          <div className="max-w-3xl">
+            <FadeIn direction="left" delay={0.2}>
+              <h1 className="text-white font-black text-4xl md:text-6xl leading-tight mb-4 drop-shadow-lg">
+                {title}
+              </h1>
             </FadeIn>
-            <FadeIn direction="right" delay={0.2} className="hidden lg:block">
-              <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-white/10 border border-white/20">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img loading="lazy" src="/images/placeholder.png" alt={title} className="w-full h-full object-cover" />
-              </div>
+            
+            {subtitle && (
+              <FadeIn direction="left" delay={0.3}>
+                <p className="text-[#9DEF06] font-extrabold text-xl md:text-2xl tracking-wide mb-8">
+                  {subtitle}
+                </p>
+              </FadeIn>
+            )}
+
+            <FadeIn direction="left" delay={0.4}>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-[#9DEF06] text-[#00286D] font-bold px-8 py-4 rounded-full hover:bg-[#8ae000] transition-all duration-300 text-sm shadow-[0_0_20px_rgba(157,239,6,0.3)]"
+              >
+                Get Quote <ArrowRight className="w-4 h-4" />
+              </Link>
             </FadeIn>
           </div>
         </div>
+        
+        {/* Animated Accent Decor */}
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent z-10" />
       </section>
 
       {/* Overview */}

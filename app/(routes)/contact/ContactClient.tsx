@@ -93,18 +93,42 @@ export default function ContactPageClient() {
 
   return (
     <>
-      {/* Hero */}
-      <FadeIn>
-        <section className="bg-[#00286D] pt-32 pb-20 px-4 md:px-8 lg:px-20">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-[#9DEF06] font-bold text-sm tracking-widest uppercase mb-4">Contact US</div>
-            <h1 className="text-white font-black text-4xl md:text-5xl leading-tight mb-4">
-              Discuss Your Project<br /><span className="text-[#9DEF06]">Requirements!</span>
-            </h1>
-            <p className="text-white/70 text-base">Speak with our engineering team for consultation and technical guidance.</p>
+      {/* Hero Section */}
+      <section className="relative min-h-[40vh] flex items-center pt-32 pb-20 px-4 md:px-8 lg:px-20 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            loading="lazy" 
+            src="/images/placeholder.png" 
+            alt="Contact SP Power Engineers" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00286D] via-[#00286D]/85 to-transparent" />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <FadeIn direction="left" delay={0.1}>
+            <div className="inline-block bg-[#9DEF06]/20 backdrop-blur-sm border border-[#9DEF06]/30 text-[#9DEF06] font-bold text-xs px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase">
+              Contact Us
+            </div>
+          </FadeIn>
+          
+          <div className="max-w-3xl">
+            <FadeIn direction="left" delay={0.2}>
+              <h1 className="text-white font-black text-4xl md:text-6xl leading-tight mb-4 drop-shadow-lg">
+                Let&apos;s Discuss Your Project
+              </h1>
+            </FadeIn>
+            
+            <FadeIn direction="left" delay={0.3}>
+              <p className="text-white/80 text-lg md:text-xl leading-relaxed max-w-xl font-medium">
+                Reach out to our engineering team for consultation, technical guidance, or a project quote.
+              </p>
+            </FadeIn>
           </div>
-        </section>
-      </FadeIn>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <FadeIn delay={0.2}>

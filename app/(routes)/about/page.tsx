@@ -30,32 +30,47 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-[#00286D] pt-32 pb-20 px-4 md:px-8 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <FadeIn direction="left" delay={0}>
-                <div className="text-[#9DEF06] font-bold text-sm tracking-widest uppercase mb-4">About SP Power</div>
-                <h1 className="text-white font-black text-4xl md:text-5xl leading-tight mb-6">
-                  Trusted Partners in Power &amp; Performance
-                </h1>
-              </FadeIn>
-              <FadeIn direction="left" delay={0.15}>
-                <p className="text-white/70 text-base leading-relaxed mb-8">
-                  Professional electrical contractors committed to quality execution and long-term reliability.
-                </p>
-                <Link href="/contact" className="bg-[#9DEF06] text-[#00286D] font-bold px-8 py-3.5 rounded-full hover:bg-[#8ae000] transition-all duration-300 inline-flex items-center gap-2 text-sm">
-                  Contact Us <ArrowRight className="w-4 h-4" />
-                </Link>
-              </FadeIn>
+      {/* Hero Section */}
+      <section className="relative min-h-[50vh] flex items-center pt-32 pb-20 px-4 md:px-8 lg:px-20 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            loading="lazy" 
+            src="/images/placeholder.png" 
+            alt="About SP Power Engineers" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00286D] via-[#00286D]/80 to-transparent" />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <FadeIn direction="left" delay={0.1}>
+            <div className="inline-block bg-[#9DEF06]/20 backdrop-blur-sm border border-[#9DEF06]/30 text-[#9DEF06] font-bold text-xs px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase">
+              About SP Power
             </div>
-            <FadeIn direction="right" delay={0.2}>
-              <div className="relative">
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-white/5 border border-white/10">
-                  <img loading="lazy" src="/images/placeholder.png" alt="SP Power Engineers — Professional Electrical Contractors" className="w-full h-full object-cover opacity-60" />
-                </div>
-              </div>
+          </FadeIn>
+          
+          <div className="max-w-3xl">
+            <FadeIn direction="left" delay={0.2}>
+              <h1 className="text-white font-black text-4xl md:text-6xl leading-tight mb-6 drop-shadow-lg">
+                Trusted Partners in Power & Performance
+              </h1>
+            </FadeIn>
+            
+            <FadeIn direction="left" delay={0.3}>
+              <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-8 max-w-xl font-medium">
+                Professional electrical contractors committed to quality execution and long-term reliability across every project we undertake.
+              </p>
+            </FadeIn>
+
+            <FadeIn direction="left" delay={0.4}>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-[#9DEF06] text-[#00286D] font-bold px-8 py-4 rounded-full hover:bg-[#8ae000] transition-all duration-300 text-sm shadow-[0_0_20px_rgba(157,239,6,0.3)]"
+              >
+                Contact Us <ArrowRight className="w-4 h-4" />
+              </Link>
             </FadeIn>
           </div>
         </div>

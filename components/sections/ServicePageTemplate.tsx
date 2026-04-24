@@ -26,35 +26,51 @@ export function ServicePageTemplate({
 }: ServicePageProps) {
   return (
     <>
-      {/* Hero */}
-      <FadeIn direction="down" delay={0}>
-        <section className="bg-[#00286D] pt-32 pb-16 px-4 md:px-8 lg:px-20">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex items-center gap-2 text-white/50 text-xs font-medium mb-6">
+      {/* Hero Section */}
+      <section className="relative min-h-[50vh] flex items-center pt-32 pb-20 px-4 md:px-8 lg:px-20 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            loading="lazy" 
+            src="/images/placeholder.png" 
+            alt={title} 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00286D] via-[#00286D]/80 to-transparent" />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <FadeIn direction="left" delay={0.1}>
+            <div className="flex items-center gap-2 text-[#9DEF06] text-xs font-bold mb-6 tracking-widest uppercase">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <span>/</span>
+              <span className="text-white/30">/</span>
               <Link href="/what-we-do" className="hover:text-white transition-colors">{breadcrumb}</Link>
-              <span>/</span>
+              <span className="text-white/30">/</span>
               <span className="text-white">{title}</span>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <FadeIn direction="left" delay={0.1}>
-                <div>
-                  <h1 className="text-white font-black text-4xl md:text-5xl leading-tight mb-4">{title}</h1>
-                  {subtitle && <p className="text-[#9DEF06] font-bold text-lg">{subtitle}</p>}
-                </div>
+          </FadeIn>
+          
+          <div className="max-w-3xl">
+            <FadeIn direction="left" delay={0.2}>
+              <h1 className="text-white font-black text-4xl md:text-6xl leading-tight mb-4 drop-shadow-lg">
+                {title}
+              </h1>
+            </FadeIn>
+            
+            {subtitle && (
+              <FadeIn direction="left" delay={0.3}>
+                <p className="text-[#9DEF06] font-extrabold text-xl md:text-2xl tracking-wide">
+                  {subtitle}
+                </p>
               </FadeIn>
-              <FadeIn direction="right" delay={0.2}>
-                <div className="relative">
-                  <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-white/5 border border-white/10">
-                    <img loading="lazy" src="/images/placeholder.png" alt={title} className="w-full h-full object-cover opacity-60" />
-                  </div>
-                </div>
-              </FadeIn>
-            </div>
+            )}
           </div>
-        </section>
-      </FadeIn>
+        </div>
+        
+        {/* Animated Accent Decor */}
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent z-10" />
+      </section>
 
       {/* Overview */}
       <section className="py-16 px-4 md:px-8 lg:px-20 bg-white">

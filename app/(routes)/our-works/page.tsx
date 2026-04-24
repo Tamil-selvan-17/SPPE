@@ -42,20 +42,42 @@ const projects = [
 export default function OurWorksPage() {
   return (
     <>
-      {/* Hero */}
-      <FadeIn>
-        <section className="bg-[#00286D] pt-32 pb-20 px-4 md:px-8 lg:px-20">
-          <div className="max-w-7xl mx-auto text-center">
-            <div className="text-[#9DEF06] font-bold text-sm tracking-widest uppercase mb-4">Our Works</div>
-            <h1 className="text-white font-black text-4xl md:text-5xl leading-tight mb-6">
-              Projects That Speak for Themselves
-            </h1>
-            <p className="text-white/70 text-base leading-relaxed max-w-2xl mx-auto">
-              Our track record is built on delivering real results — strengthening operations, improving reliability, and meeting expectations every time.
-            </p>
+      {/* Hero Section */}
+      <section className="relative min-h-[50vh] flex items-center pt-32 pb-20 px-4 md:px-8 lg:px-20 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            loading="lazy" 
+            src="/images/placeholder.png" 
+            alt="Our Works — SP Power Engineers" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#00286D]/80" />
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10 w-full text-center">
+          <FadeIn direction="up" delay={0.1}>
+            <div className="inline-block bg-[#9DEF06]/20 backdrop-blur-sm border border-[#9DEF06]/30 text-[#9DEF06] font-bold text-xs px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase">
+              Our Works
+            </div>
+          </FadeIn>
+          
+          <div className="max-w-3xl mx-auto">
+            <FadeIn direction="up" delay={0.2}>
+              <h1 className="text-white font-black text-4xl md:text-6xl leading-tight mb-6 drop-shadow-lg">
+                Projects That Speak for Themselves
+              </h1>
+            </FadeIn>
+            
+            <FadeIn direction="up" delay={0.3}>
+              <p className="text-white/80 text-lg md:text-xl leading-relaxed font-medium">
+                Our track record is built on delivering real results — strengthening operations, improving reliability, and meeting expectations every time across India.
+              </p>
+            </FadeIn>
           </div>
-        </section>
-      </FadeIn>
+        </div>
+      </section>
 
       {/* Projects Grid */}
       <FadeIn delay={0.2}>
